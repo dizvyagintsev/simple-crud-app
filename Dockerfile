@@ -14,6 +14,6 @@ COPY ./alembic.ini /code/
 COPY ./alembic /code/alembic
 
 # Install deps:
-RUN poetry install --no-root --no-dev
+RUN poetry install --no-root
 
 COPY ./app /code/app

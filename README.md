@@ -15,3 +15,12 @@ Simple CRUD application built with FastAPI. Also it uses:
 echo DB_PASSWORD=supersecurepassword > .env
 docker-compose up --build
 ```
+
+##### Tests:
+Tests divided on unit (mocks DAL) and integration (uses real database)
+- Run unit tests: `pytest`
+- Run integration tests:
+```
+echo DB_PASSWORD=supersecurepassword > .env
+docker-compose run web bash -c "alembic upgrade head && pytest app --integration"
+```
