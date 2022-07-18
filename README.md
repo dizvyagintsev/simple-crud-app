@@ -1,6 +1,7 @@
 # Simple CRUD app with FastAPI
 
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+![CI workflow](https://github.com/dizvyagintsev/simple-crud-app/actions/workflows/ci.yml/badge.svg)
 
 Simple CRUD application built with FastAPI. Also it uses:
 - PostgreSQL as storage
@@ -9,6 +10,8 @@ Simple CRUD application built with FastAPI. Also it uses:
 - Poetry as a dependency manager
 - Docker compose for building
 - Black, pylint and mypy for formatting and linting
+- PyTest for testing
+- Gihub Actions for CI
 
 ##### Easy to run locally:
 ```
