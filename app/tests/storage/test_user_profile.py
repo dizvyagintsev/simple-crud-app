@@ -6,6 +6,7 @@ from app.schemas import UserProfileCreate, UserProfileUpdate
 from app.storage.user_profile import UserProfileDAL, DuplicateEmail, UserProfileNotFound
 
 
+@pytest.mark.integration
 @pytest.mark.asyncio
 async def test_create_user_profile(user_profile_dal: UserProfileDAL):
     user_id = await user_profile_dal.create_user_profile(
@@ -25,6 +26,7 @@ async def test_create_user_profile(user_profile_dal: UserProfileDAL):
     assert profile.is_banned is False
 
 
+@pytest.mark.integration
 @pytest.mark.asyncio
 async def test_create_user_profile_duplicate_emails(user_profile_dal: UserProfileDAL):
     await user_profile_dal.create_user_profile(
@@ -45,12 +47,14 @@ async def test_create_user_profile_duplicate_emails(user_profile_dal: UserProfil
         )
 
 
+@pytest.mark.integration
 @pytest.mark.asyncio
 async def test_get_user_profile_not_found(user_profile_dal: UserProfileDAL):
     with pytest.raises(UserProfileNotFound):
         await user_profile_dal.get_user_profile(1)
 
 
+@pytest.mark.integration
 @pytest.mark.asyncio
 async def test_update_user_profile(user_profile_dal: UserProfileDAL):
     user_id = await user_profile_dal.create_user_profile(
@@ -78,6 +82,7 @@ async def test_update_user_profile(user_profile_dal: UserProfileDAL):
     assert profile.is_banned is False
 
 
+@pytest.mark.integration
 @pytest.mark.asyncio
 async def test_update_user_profile_duplicate_email(user_profile_dal: UserProfileDAL):
     await user_profile_dal.create_user_profile(
@@ -102,6 +107,7 @@ async def test_update_user_profile_duplicate_email(user_profile_dal: UserProfile
         )
 
 
+@pytest.mark.integration
 @pytest.mark.asyncio
 async def test_update_user_profile_not_found(user_profile_dal: UserProfileDAL):
     with pytest.raises(UserProfileNotFound):
@@ -111,6 +117,7 @@ async def test_update_user_profile_not_found(user_profile_dal: UserProfileDAL):
         )
 
 
+@pytest.mark.integration
 @pytest.mark.asyncio
 async def test_delete_user_profile(user_profile_dal: UserProfileDAL):
     user_id = await user_profile_dal.create_user_profile(
@@ -126,6 +133,7 @@ async def test_delete_user_profile(user_profile_dal: UserProfileDAL):
         await user_profile_dal.get_user_profile(user_id)
 
 
+@pytest.mark.integration
 @pytest.mark.asyncio
 async def test_delete_user_profile_not_found(user_profile_dal: UserProfileDAL):
     with pytest.raises(UserProfileNotFound):
